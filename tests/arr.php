@@ -9,9 +9,9 @@ class UnitTest_Arr extends UnitTest_Case {
 		$mixed = array('one' => 'foo', 'bar');
 
 		$this
-			->assert_equal(Arr::is_assoc($index), FALSE)
-			->assert_equal(Arr::is_assoc($assoc), TRUE)
-			->assert_equal(Arr::is_assoc($mixed), TRUE);
+			->assert_false(Arr::is_assoc($index))
+			->assert_true(Arr::is_assoc($assoc))
+			->assert_true(Arr::is_assoc($mixed));
 	}
 
 	public function test_extract()
