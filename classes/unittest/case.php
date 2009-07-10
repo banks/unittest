@@ -31,6 +31,32 @@ abstract class UnitTest_Case {
 		// Nothing by default
 	}
 
+	public function assert_true($value, $debug = NULL)
+	{
+		if ($value !== TRUE)
+		{
+			throw new UnitTest_Exception(':method: Expected :value to be TRUE', array(
+				':method' => __FUNCTION__,
+				':value'  => Kohana::dump($value),
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_false($value, $debug = NULL)
+	{
+		if ($value !== FALSE)
+		{
+			throw new UnitTest_Exception(':method: Expected :value to be TRUE', array(
+				':method' => __FUNCTION__,
+				':value'  => Kohana::dump($value),
+			), $debug);
+		}
+
+		return $this;
+	}
+
 	public function assert_equal($tested, $expected, $debug = NULL)
 	{
 		if ($tested !== $expected)

@@ -9,6 +9,8 @@
  */
 class UnitTest_Example extends UnitTest_Case {
 
+	public static $disabled = TRUE;
+
 	public $setup_has_run = FALSE;
 
 	public function setup()
@@ -25,8 +27,8 @@ class UnitTest_Example extends UnitTest_Case {
 	{
 		$var = TRUE;
 		$this
-			->assert_equal($var, TRUE)
-			->assert_equal( ! $var, FALSE);
+			->assert_true($var)
+			->assert_false( ! $var);
 	}
 
 	public function test_equal_same()
