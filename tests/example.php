@@ -20,7 +20,7 @@ class UnitTest_Example extends UnitTest_Case {
 
 	public function test_setup()
 	{
-		$this->assert_equal($this->setup_has_run, TRUE);
+		$this->assert_true($this->setup_has_run, TRUE);
 	}
 
 	public function test_true_false()
@@ -31,7 +31,7 @@ class UnitTest_Example extends UnitTest_Case {
 			->assert_false( ! $var);
 	}
 
-	public function test_equal_same()
+	public function test_equal()
 	{
 		$var = '5';
 		$this
@@ -40,6 +40,42 @@ class UnitTest_Example extends UnitTest_Case {
 			->assert_not_equal($var, '6')
 			->assert_not_similar($var, 6);
 	}
+
+	public function test_count()
+	{
+		$array = array('one');
+		$this->assert_count($array, 1);
+	}
+
+	public function test_isset()
+	{
+		$array = array('a' => 'A', 'b' => 'B');
+		$this->assert_isset('a', $array);
+	}
+
+	public function test_in_array()
+	{
+		$array = array('X', 'Y', 'Z');
+		$this->assert_in_array('X', $array);
+	}
+
+	public function test_instance()
+	{
+		$this
+			->assert_object($this)
+			->assert_instance($this, 'UnitTest_Case')
+			->assert_not_instance($this, 'Kohana');
+	}
+
+	public function test_pattern()
+	{
+		$var = "Kohana\n";
+		$this
+			->assert_regex_match($var, '/^Kohana$/')
+			->assert_not_regex_match($var, '/^Kohana$/D');
+	}
+
+	// The following tests should all fail or error:
 
 	public function test_type()
 	{
@@ -58,34 +94,6 @@ class UnitTest_Example extends UnitTest_Case {
 			->assert_not_null(0)
 			->assert_empty('0')
 			->assert_not_empty('1');
-	}
-
-	public function test_pattern()
-	{
-		$var = "Kohana\n";
-		$this
-			->assert_regex_match($var, '/^Kohana$/')
-			->assert_not_regex_match($var, '/^Kohana$/D');
-	}
-
-	public function test_array_key()
-	{
-		$array = array('a' => 'A', 'b' => 'B');
-		$this->assert_isset('a', $array);
-	}
-
-	public function test_in_array()
-	{
-		$array = array('X', 'Y', 'Z');
-		$this->assert_in_array('X', $array);
-	}
-
-	public function test_similar()
-	{
-		$a = TRUE;
-		$b = 'ok';
-
-		$this->assert_similar($a, $b);
 	}
 
 	public function test_debug_example()
