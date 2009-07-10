@@ -60,4 +60,4 @@ class UnitTest_Arr extends UnitTest_Case {
 		$this->assert_equal(Arr::callback($callback), $expect);
 	}
 
-} // End UnitTest_Arr
+} // End Arr

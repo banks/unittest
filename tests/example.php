@@ -111,4 +111,4 @@ class UnitTest_Example extends UnitTest_Case {
 		throw new Exception;
 	}
 
-}
+} // End Example
