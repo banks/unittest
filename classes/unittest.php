@@ -146,7 +146,7 @@ class UnitTest {
 					'passed' => 0,
 					'failed' => 0,
 					'errors' => 0,
-					'score'  => NULL,
+					'score'  => 0,
 				);
 			}
 
@@ -196,8 +196,11 @@ class UnitTest {
 				$this->stats[$_class]['total']++;
 			}
 
-			// Calculate score
-			$this->stats[$_class]['score'] = $this->stats[$_class]['passed'] * 100 / $this->stats[$_class]['total'];
+			if ($this->stats[$_class]['total'] > 0)
+			{
+				// Calculate score
+				$this->stats[$_class]['score'] = $this->stats[$_class]['passed'] * 100 / $this->stats[$_class]['total'];
+			}
 
 			// Clean up the test
 			$object->teardown();
