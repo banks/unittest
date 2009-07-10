@@ -117,9 +117,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_null($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a NULL but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a NULL but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -131,9 +130,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_bool($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-NULL but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-NULL but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -145,9 +143,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_bool($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a boolean but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a boolean but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -159,9 +156,8 @@ abstract class UnitTest_Case {
 	{
 		if (is_bool($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-boolean but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-boolean but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -173,9 +169,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_int($value))
 		{
-			throw new UnitTest_Exception(':method: Expected an integer but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected an integer but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -187,9 +182,8 @@ abstract class UnitTest_Case {
 	{
 		if (is_int($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-integer but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-integer but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -201,9 +195,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_float($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a float but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a float but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -215,9 +208,34 @@ abstract class UnitTest_Case {
 	{
 		if (is_float($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-float but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-float but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
+				':value'  => Kohana::dump($value),
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_string($value, $debug = NULL)
+	{
+		if ( ! is_string($value))
+		{
+			throw new UnitTest_Exception(':method: Expected a string but was given :value', array(
+				':method' => __FUNCTION__,
+				':value'  => Kohana::dump($value),
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_not_string($value, $debug = NULL)
+	{
+		if (is_string($value))
+		{
+			throw new UnitTest_Exception(':method: Expected a string but was given :value', array(
+				':method' => __FUNCTION__,
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -229,9 +247,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_array($value))
 		{
-			throw new UnitTest_Exception(':method: Expected an array but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected an array but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -243,9 +260,8 @@ abstract class UnitTest_Case {
 	{
 		if (is_array($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-array but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-array but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
