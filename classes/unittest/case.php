@@ -257,9 +257,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! is_object($value))
 		{
-			throw new UnitTest_Exception(':method: Expected an object but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected an object but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -271,10 +270,37 @@ abstract class UnitTest_Case {
 	{
 		if (is_object($value))
 		{
-			throw new UnitTest_Exception(':method: Expected a non-object but was given (:type) :value', array(
+			throw new UnitTest_Exception(':method: Expected a non-object but was given :value', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
-				':value'  => Kohana::dump($value),
+				':value'  => Kohana::dump($object),
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_instance($object, $class, $debug = NULL)
+	{
+		if ( ! ($object instanceof $class))
+		{
+			throw new UnitTest_Exception(':method: Expected :object to be an instance of :class', array(
+				':method' => __FUNCTION__,
+				':object' => Kohana::dump($object),
+				':class'  => $class,
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_not_instance($object, $class, $debug = NULL)
+	{
+		if ($object instanceof $class)
+		{
+			throw new UnitTest_Exception(':method: Expected :object to not be an instance of :class', array(
+				':method' => __FUNCTION__,
+				':object' => Kohana::dump($object),
+				':class'  => $class,
 			), $debug);
 		}
 
@@ -285,9 +311,8 @@ abstract class UnitTest_Case {
 	{
 		if ( ! empty($value))
 		{
-			throw new UnitTest_Exception(':method: Expected (:type) :value to be empty', array(
+			throw new UnitTest_Exception(':method: Expected :value to be empty', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
 			), $debug);
 		}
@@ -299,10 +324,37 @@ abstract class UnitTest_Case {
 	{
 		if (empty($value))
 		{
-			throw new UnitTest_Exception(':method: Expected (:type) :value to not be empty', array(
+			throw new UnitTest_Exception(':method: Expected :value to not be empty', array(
 				':method' => __FUNCTION__,
-				':type'   => gettype($value),
 				':value'  => Kohana::dump($value),
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_count($value, $count, $debug = NULL)
+	{
+		if (count($value) !== $count)
+		{
+			throw new UnitTest_Exception(':method: Expected the count of :value to be :count', array(
+				':method' => __FUNCTION__,
+				':value'  => Kohana::dump($value),
+				':count'  => $count,
+			), $debug);
+		}
+
+		return $this;
+	}
+
+	public function assert_not_count($value, $count, $debug = NULL)
+	{
+		if (count($value) === $count)
+		{
+			throw new UnitTest_Exception(':method: Expected the count of :value to not be :count', array(
+				':method' => __FUNCTION__,
+				':value'  => Kohana::dump($value),
+				':count'  => $count,
 			), $debug);
 		}
 
