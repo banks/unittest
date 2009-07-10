@@ -146,7 +146,7 @@ class UnitTest {
 					'passed' => 0,
 					'failed' => 0,
 					'errors' => 0,
-					'score'  => 0,
+					'score'  => 100,
 				);
 			}
 
