@@ -52,15 +52,22 @@ class Kohana_UnitTest {
 		{
 			if (is_null($directory)) 
 			{
-				$directory = "";
+				$tests_directory = "";
 			}
 			else 
 			{
-				$directory = DIRECTORY_SEPARATOR.trim($directory, DIRECTORY_SEPARATOR);
+				$tests_directory = 'tests'.DIRECTORY_SEPARATOR.trim($directory, DIRECTORY_SEPARATOR);
 			}
 			
 			// Load tests from directory
-			$tests = Kohana::list_files('tests'.$directory);
+			$tests = Kohana::list_files($tests_directory);
+			
+			// Load specified test case if found and make it first to run
+			if (dirname($tests_directory) !== basename($tests_directory) 
+				AND ($test_file = Kohana::find_file(dirname($tests_directory), basename($tests_directory))))
+			{
+				array_unshift($tests, $test_file);
+			}
 		}
 		
 		$flattened_tests = array();
