@@ -5,7 +5,7 @@ class UnitTest_File extends UnitTest_Case {
 	// Temporary file name
 	protected $_file;
 
-	public function setup()
+	public function __construct()
 	{
 		// Create a temporary file
 		$this->_file = APPPATH.'cache/unittest_'.uniqid().'.txt';
@@ -21,7 +21,7 @@ class UnitTest_File extends UnitTest_Case {
 		fclose($file);
 	}
 
-	public function teardown()
+	public function __destruct()
 	{
 		$files = glob($this->_file.'*');
 

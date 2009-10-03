@@ -4,7 +4,7 @@ class UnitTest_Date extends UnitTest_Case {
 
 	protected $_timezone;
 
-	public function setup()
+	public function __construct()
 	{
 		$this->_timezone = date_default_timezone_get();
 
@@ -12,7 +12,7 @@ class UnitTest_Date extends UnitTest_Case {
 		date_default_timezone_set('GMT');
 	}
 
-	public function teardown()
+	public function __destruct()
 	{
 		date_default_timezone_set($this->_timezone);
 	}

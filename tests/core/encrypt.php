@@ -8,12 +8,12 @@ class UnitTest_Encrypt extends UnitTest_Case {
 	// Data to be encoded/decoded
 	protected $_data = 'Hello, world! My name is Kohana.';
 
-	public function setup()
+	public function __construct()
 	{
 		$this->_encrypt = new Encrypt('secret key', MCRYPT_MODE_NOFB, MCRYPT_RIJNDAEL_128);
 	}
 
-	public function teardown()
+	public function __destruct()
 	{
 		$this->_encrypt = NULL;
 	}

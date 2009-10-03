@@ -4,7 +4,7 @@ class UnitTest_CLI extends UnitTest_Case {
 
 	protected $_server;
 
-	public function setup()
+	public function __construct()
 	{
 		$this->_server = $_SERVER;
 
@@ -13,7 +13,7 @@ class UnitTest_CLI extends UnitTest_Case {
 		$_SERVER['argc'] = count($_SERVER['argv']);
 	}
 
-	public function teardown()
+	public function __destruct()
 	{
 		$_SERVER = $this->_server;
 	}
