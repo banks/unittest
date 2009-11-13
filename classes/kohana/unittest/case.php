@@ -11,6 +11,8 @@ abstract class Kohana_UnitTest_Case {
 
 	public static $disabled = FALSE;
 
+	public $assertion_count;
+	
 	/**
 	 * Executed before each test is run.
 	 *
@@ -18,7 +20,7 @@ abstract class Kohana_UnitTest_Case {
 	 */
 	public function setup()
 	{
-		// Nothing by default
+		$this->assertion_count = 0;
 	}
 
 	/**
@@ -41,6 +43,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -54,6 +57,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -68,6 +72,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -82,6 +87,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -96,6 +102,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -110,6 +117,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -123,6 +131,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -136,6 +145,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -149,6 +159,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -162,6 +173,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -175,6 +187,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -188,6 +201,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -201,6 +215,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -214,6 +229,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -227,6 +243,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -240,6 +257,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -253,6 +271,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -266,6 +285,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -279,6 +299,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -292,6 +313,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -306,6 +328,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -320,6 +343,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -333,6 +357,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -346,6 +371,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -360,6 +386,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -374,6 +401,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -388,6 +416,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -402,6 +431,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -416,6 +446,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -430,6 +461,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -444,6 +476,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 
@@ -458,6 +491,7 @@ abstract class Kohana_UnitTest_Case {
 			), $debug);
 		}
 
+		$this->assertion_count ++;
 		return $this;
 	}
 

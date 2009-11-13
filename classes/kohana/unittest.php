@@ -31,6 +31,11 @@ class Kohana_UnitTest {
 	public $results = array();
 
 	/**
+	 * @var  array  Number of assertions in each test, organized by class and method
+	 */
+	public $assertions = array();
+	
+	/**
 	 * @var  array  Statistics of each test, organized by class
 	 */
 	public $stats = array();
@@ -195,6 +200,7 @@ class Kohana_UnitTest {
 					'failed' => 0,
 					'errors' => 0,
 					'score'  => 100,
+					'assertions' => 0,
 				);
 			}
 
@@ -240,8 +246,11 @@ class Kohana_UnitTest {
 					$this->stats[$_class]['errors']++;
 				}
 
+				$this->assertions[$_class][$_method] = $object->assertion_count;
+
 				// A test has been executed
 				$this->stats[$_class]['total']++;
+				$this->stats[$_class]['assertions'] += $object->assertion_count;
 				
 				// Clean up the test
 				$object->teardown();
@@ -289,6 +298,7 @@ class Kohana_UnitTest {
 
 		// Render UnitTest report
 		return $report->set('results', $this->results)
+					  ->set('assertions', $this->assertions)
 					  ->set('stats', $this->stats)
 					  ->set('hide_passed', $this->hide_passed)
 					  ->render();

@@ -61,6 +61,11 @@
 	border-bottom: 1px solid #E5EFF8;
 	padding: 3px;
 }
+#kohana-unit-test span.assertions
+{
+	font-size: 0.8em;
+	color: #7794A3;
+}
 #kohana-unit-test .k-stats
 {
 	font-weight: normal;
@@ -83,6 +88,14 @@
 #kohana-unit-test .k-altrow .k-passed
 {
 	background-color: #D0FFD0;
+}
+#kohana-unit-test .k-passed-zero
+{
+	background-color: #F4F4F4;
+}
+#kohana-unit-test .k-altrow .k-passed-zero
+{
+	background-color: #EFEFEF;
 }
 #kohana-unit-test .k-failed
 {
@@ -116,7 +129,8 @@
 				<?php echo __('Total'),  ': ', $stats[$class]['total'] ?>,
 				<?php echo __('Passed'), ': ', $stats[$class]['passed'] ?>,
 				<?php echo __('Failed'), ': ', $stats[$class]['failed'] ?>,
-				<?php echo __('Errors'), ': ', $stats[$class]['errors'] ?>
+				<?php echo __('Errors'), ': ', $stats[$class]['errors'] ?>,
+				<?php echo __('Assertions'),': ', $stats[$class]['assertions'] ?>
 			</th>
 		</tr>
 
@@ -139,9 +153,10 @@
 				<tr class="<?php echo text::alternate('', 'k-altrow') ?>">
 					<td class="k-name"><?php echo $method ?></td>
 
-					<?php if ($result === TRUE): ?>
-
-						<td class="k-passed"><strong><?php echo __('Passed') ?></strong></td>
+					<?php if ($result === TRUE):
+						$class_name = $assertions[$class][$method] != 0 ? 'k-passed'  : 'k-passed-zero';
+					?>
+						<td class="<?php echo $class_name ?>"><strong><?php echo __('Passed') ?></strong> <span class='assertions'>(<?php echo __('Assertions') . ': ' . $assertions[$class][$method]?>)</span></td>
 
 					<?php elseif ($result instanceof Unittest_Exception): ?>
 
