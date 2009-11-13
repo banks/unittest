@@ -247,6 +247,21 @@ abstract class Kohana_UnitTest_Case {
 		return $this;
 	}
 
+	public function assert_string_contains($tested, $expected, $debug=NULL)
+	{
+		if (strpos($tested, $expected) === FALSE)
+		{
+			throw new UnitTest_Exception(':method: Expected to find :expected within :value', array(
+				':method'   => __FUNCTION__,
+				':value'    => $tested,
+				':expected' => $expected,
+			), $debug);
+		}
+
+		$this->assertion_count ++;
+		return $this;
+	}
+
 	public function assert_not_string($value, $debug = NULL)
 	{
 		if (is_string($value))
